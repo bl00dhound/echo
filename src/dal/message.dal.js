@@ -11,6 +11,7 @@ const dal = {
   getTimestampsByNow: now => redis.zrangebyscoreAsync(TIMESTAMP_TREE_SET, 0, now),
   moveToAnotherQueue: (src, dest) => redis.rpoplpushAsync(src, dest),
   popMessageFromProcessQueue: list => redis.rpopAsync(list),
+  removeBeforeTS: ts => redis.zremrangebyscore(TIMESTAMP_TREE_SET, 0, ts),
 };
 
 module.exports = dal;

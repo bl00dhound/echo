@@ -8,7 +8,7 @@ const worker = {
       const message = await moveToProcessQueue();
       if (!message) return false;
       return printFromProcessQueue();
-    }, 200);
+    }, 100);
   },
 };
 

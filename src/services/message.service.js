@@ -41,6 +41,7 @@ const service = {
     });
     return { counter };
   },
+  removeBeforeTS: ts => dal.removeBeforeTS(ts),
 };
 
 module.exports = service;
