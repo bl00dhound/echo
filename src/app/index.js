@@ -1,4 +1,3 @@
-require('dotenv').config();
 const http = require('http');
 const url = require('url');
 const { StringDecoder } = require('string_decoder');
@@ -8,6 +7,7 @@ const { apiPort } = require('../config');
 const Routes = require('../enums/routes.enum');
 const log = require('../providers/logger');
 const { jsonParse } = require('../utils/helpers.utils');
+const printer = require('../workers/print-message');
 
 const server = (req, res) => {
   const { pathname, query } = url.parse(req.url, true);
@@ -48,8 +48,11 @@ const server = (req, res) => {
   });
 };
 
+printer.start();
 const httpServer = http.createServer(server);
 
 httpServer.listen(apiPort, () => {
   log.info(`HTTP server is started on ${apiPort} port.`);
 });
+
+module.exports = httpServer;

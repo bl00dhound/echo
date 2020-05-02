@@ -17,6 +17,8 @@
     "promise/no-return-in-finally": "error",
     "prefer-arrow-callback": "error",
     "arrow-parens": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "no-plusplus": "off",
+    "no-await-in-loop": "warn"
   }
 }

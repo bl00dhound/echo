@@ -44,6 +44,9 @@ describe('#Validators', () => {
     it('("my message", "Mon, Dec 17, 2040 01:24:00 GMT") -> 2239320240000', () => {
       expect(addToMessages('my message', 'Mon, Dec 17, 2040 01:24:00 GMT')).to.be.equal(2239320240000);
     });
+    it('("my message", 2239320240999) -> 2239320240000', () => {
+      expect(addToMessages('my message', 2239320240999)).to.be.equal(2239320240999);
+    });
 
   });
 
