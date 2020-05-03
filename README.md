@@ -42,7 +42,6 @@ Simple echo server
 You can start application in developer mode:
 
 1. Install:
-   dock
 
    ```
    npm install
