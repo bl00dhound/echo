@@ -33,38 +33,37 @@
 			</li>
 			<li>
 				<div>
-					Service that printing messages. Start every 100ms, move one message from "publish_queue" to
-					"process_server_queue" and trying to print this one.
+					Service that prints messages. Starts every 100ms, moves one message from "publish_queue" to
+					"process_server_queue" and tries to print this one.
 				</div>
 			</li>
 			<li>
-				<div>Sorted set that store timestamps in ascending order. It uses for fast finding the timestamps for
-					processing.</div>
+				<div>Sorted set that stores timestamps in ascending order. It is used for fast finding timestamps to process.</div>
 			</li>
 			<li>
 				<div>
-					Queues that store the messages with their display time. This is used to avoid the collision when somebody push
+					Queues that store the messages with their display time. This is used to avoid collisions when somebody pushes
 					messages with the same timestamps.
 				</div>
 			</li>
 			<li>
 				<div>
-					Queue that store messages that need to be printed.
+					Queue that stores messages to be printed.
 				</div>
 			</li>
 			<li>
 				<div>
-					Queue that is related to the server and store message that is in process of printing.
+					Queue that is related to the server and stores message that is in process of printing.
 				</div>
 			</li>
 			<li>
 				<div>
-					Worker that provide cron-job tasks.
+					Worker that provides cron-job tasks.
 				</div>
 			</li>
 			<li>
 				<div>
-					A task which picks up timestamps earlier than now, pushes them to "process_queue" and removes timestamps.
+					A task which picks up timestamps earlier than now, pushes them to "process_queue" and removes them.
 				</div>
 			</li>
 			<li>
