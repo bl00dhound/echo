@@ -35,8 +35,10 @@ const service = {
 
       while (hasNext) {
         const message = await dal.moveToAnotherQueue(ts, PUBLISH_QUEUE);
-        if (!message) hasNext = false;
-        else counter++;
+        if (!message) {
+          await dal.removeTimestamp(ts);
+          hasNext = false;
+        } else counter++;
       }
     });
     return counter;

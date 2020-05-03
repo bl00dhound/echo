@@ -12,6 +12,7 @@ const dal = {
   moveToAnotherQueue: (src, dest) => redis.rpoplpushAsync(src, dest),
   popMessageFromProcessQueue: list => redis.rpopAsync(list),
   removeBeforeTS: ts => redis.zremrangebyscore(TIMESTAMP_TREE_SET, 0, ts),
+  removeTimestamp: ts => redis.zremrangebyscore(TIMESTAMP_TREE_SET, ts, ts),
 };
 
 module.exports = dal;
