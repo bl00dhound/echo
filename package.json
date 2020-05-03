@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "node -r dotenv/config ./src/app/index.js | pino-pretty",
+    "time-checker": "node -r dotenv/config ./src/workers/time-checker/index.js | pino-pretty",
     "test": "REDIS_DB=3 mocha --recursive --exit --timeout 20000"
   },
   "repository": {

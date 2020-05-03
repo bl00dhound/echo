@@ -9,14 +9,14 @@ const {
 const _checkAvailableMessages = async () => {
   const timestamps = await getAvailableTimestamps();
   if (timestamps.length === 0) return false;
-
-  return moveToPublishQueue(timestamps);
+  const result = await moveToPublishQueue(timestamps);
+  return result;
 };
 
 const _clearOldTimestamps = async () => {
   const yesterday = new Date().valueOf() - 1000 * 60 * 60 * 24;
-  const remove = await removeBeforeTS(yesterday);
-  return remove;
+  const result = await removeBeforeTS(yesterday);
+  return result;
 };
 
 builder('* * * * * *', _checkAvailableMessages, CHECK_AVAILABLE_MESSAGES);

@@ -5,7 +5,7 @@ const builder = (period, handler, name) => {
   schedule.scheduleJob(period, () => {
     handler()
       .then(result => {
-        log.info(`Schedule ${name} success`, { result });
+        if (result) log.info(`Schedule ${name} success: ${result}`);
       })
       .catch(e => {
         log.error(`Schedule ${name} error`, { error: e.message, stack: e.stack });

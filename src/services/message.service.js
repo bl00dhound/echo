@@ -28,18 +28,18 @@ const service = {
     if (!message) return false;
     return printMessage(message);
   },
-  moveToPublishQueue: (timestamps = []) => {
+  moveToPublishQueue: async (timestamps = []) => {
     let counter = 0;
-    timestamps.forEach(async ts => {
+    await Promise.map(timestamps, async ts => {
       let hasNext = true;
 
       while (hasNext) {
         const message = await dal.moveToAnotherQueue(ts, PUBLISH_QUEUE);
         if (!message) hasNext = false;
-        counter++;
+        else counter++;
       }
     });
-    return { counter };
+    return counter;
   },
   removeBeforeTS: ts => dal.removeBeforeTS(ts),
 };

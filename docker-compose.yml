@@ -14,6 +14,24 @@ services:
     logging:
       options:
         max-size: 50m
+  app:
+    container_name: echo-app
+    depends_on:
+      - redis
+    links:
+      - redis:database
+    build:
+      context: ./
+      dockerfile: etc/docker/app.Dockerfile
+    image: echo-app
+    ports:
+      - 3000:3000
+      - 3001:3001
+    networks:
+      - private
+    logging:
+      options:
+        max-size: 50m
 
 networks:
   private:

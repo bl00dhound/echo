@@ -36,13 +36,10 @@ const server = (req, res) => {
 
     currentHandler(data, (statusCode, payload) => {
       const checkedStatusCode = typeof statusCode === 'number' ? statusCode : 200;
-      // const checkedPayload = payload ? JSON.stringify(payload) : '';
 
       res.setHeader('Content-Type', 'application/json');
       res.writeHead(checkedStatusCode);
-      // res.end(checkedPayload);
       res.end(payload);
-      // log.info(`Returning this response: ${checkedStatusCode} ${checkedPayload}`);
       log.info(`Returning this response: ${checkedStatusCode} ${payload}`);
     });
   });
