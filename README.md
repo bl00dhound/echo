@@ -28,6 +28,7 @@ Simple echo server
    ```
 
    After `pm2 status` you can see this report:
+
    ![pm2_status](https://bl00dhound.s3.amazonaws.com/images/pm2_status.png)
 
 3. Watch logs:
