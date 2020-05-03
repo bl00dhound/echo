@@ -1,6 +1,6 @@
 # echo
 
-Simple echo server
+Simple echo server. See docs there: [Docs](https://bl00dhound.github.io/echo/)
 
 ## Required
 
