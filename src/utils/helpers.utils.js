@@ -3,6 +3,7 @@ const os = require('os');
 const log = require('../providers/logger');
 const { PROCESS_QUEUE } = require('../enums/redis-stores.enum');
 
+// safe JSON.parse
 const jsonParse = data => {
   let parsedData = {};
   try {
@@ -13,6 +14,7 @@ const jsonParse = data => {
   return parsedData;
 };
 
+// print message to stdout
 const printMessage = message => {
   console.log(
     '\x1b[35m%s\x1b[0m',
@@ -26,6 +28,7 @@ const printMessage = message => {
   );
 };
 
+// build process_queue name based on instance hostname and PID
 const getProcessQueueName = () => `${PROCESS_QUEUE}_${os.hostname}_${process.pid}`;
 
 module.exports = {

@@ -1,6 +1,10 @@
 const log = require('../../providers/logger');
 const messageApi = require('./message.api');
 
+/**
+ * This is a primitive routing model.
+ */
+
 const root = (_data, cb) => cb(200, 'Echo API.');
 
 const message = (data, cb) => {

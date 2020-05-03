@@ -9,6 +9,10 @@ const log = require('../providers/logger');
 const { jsonParse } = require('../utils/helpers.utils');
 const printer = require('../workers/print-message');
 
+/**
+ * I desided not to use any REST frameworks for creating one endpoint. It uses just simple node.js.
+ */
+
 const server = (req, res) => {
   const { pathname, query } = url.parse(req.url, true);
   const trimmedPathname = pathname.replace(/^\/+|\/+$/g, '') || Routes.ROOT;

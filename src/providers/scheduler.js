@@ -1,6 +1,10 @@
 const schedule = require('node-schedule');
 const log = require('./logger');
 
+/**
+ * Wrapper for ease creation of tasks.
+ */
+
 const builder = (period, handler, name) => {
   schedule.scheduleJob(period, () => {
     handler()

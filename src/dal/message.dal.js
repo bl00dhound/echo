@@ -1,6 +1,10 @@
 const redis = require('../providers/redis');
 const { TIMESTAMP_TREE_SET } = require('../enums/redis-stores.enum');
 
+/**
+ * Methods for working with redis.
+ */
+
 const dal = {
   addTimestamp: async timestamp => {
     const result = await redis.zaddAsync(TIMESTAMP_TREE_SET, timestamp, timestamp);
